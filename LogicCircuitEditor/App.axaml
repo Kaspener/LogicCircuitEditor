@@ -8,5 +8,13 @@
 
     <Application.Styles>
         <FluentTheme Mode="Light"/>
+		<StyleInclude Source="/Views/Controls/AndControl.axaml"/>
+		<StyleInclude Source="/Views/Controls/DecoderControl.axaml"/>
+		<StyleInclude Source="/Views/Controls/EditableTextBlock.axaml"/>
+		<StyleInclude Source="/Views/Controls/InputControl.axaml"/>
+		<StyleInclude Source="/Views/Controls/NotControl.axaml"/>
+		<StyleInclude Source="/Views/Controls/OrControl.axaml"/>
+		<StyleInclude Source="/Views/Controls/OutputControl.axaml"/>
+		<StyleInclude Source="/Views/Controls/XorControl.axaml"/>
     </Application.Styles>
 </Application>

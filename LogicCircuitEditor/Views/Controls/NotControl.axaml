@@ -1,0 +1,29 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:converters="clr-namespace:LogicCircuitEditor.Converters"
+        xmlns:controls="using:LogicCircuitEditor.Views.Control">
+	<Design.PreviewWith>
+		<controls:NotControl />
+	</Design.PreviewWith>
+
+	<Styles.Resources>
+		<converters:FocusColorConverter x:Key="focusColor"/>
+	</Styles.Resources>
+
+	<Style Selector="controls|NotControl">
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Canvas Name="NotCanvas" Height="70" Width="80">
+					<Path Data="M 10,0 l 70,35 l -70,35 l 0,-70" Stroke="{TemplateBinding FocusOnElement, Converter={StaticResource focusColor}}" StrokeThickness="1" Fill="LightGreen"/>
+					<Ellipse Name="Input" Fill="Magenta" Width="10" Height="10" Canvas.Top="30"/>
+					<Ellipse Name="Output" Fill="Magenta" Width="10" Height="10" Canvas.Top="30" Canvas.Left="70"/>
+					<TextBlock Text="Not" Canvas.Left="20" Canvas.Top="25">
+						<TextBlock.RenderTransform>
+							<RotateTransform Angle="90"/>
+						</TextBlock.RenderTransform>
+					</TextBlock>
+				</Canvas>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+</Styles>

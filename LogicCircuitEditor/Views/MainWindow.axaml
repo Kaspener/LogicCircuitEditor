@@ -6,7 +6,8 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="LogicCircuitEditor.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="LogicCircuitEditor">
+        Title="LogicCircuitEditor"
+		Content="{Binding Content}">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>

@@ -30,6 +30,55 @@ namespace LogicCircuitEditor.Views
             InitializeComponent();
         }
 
+        private async void OpenFileDialogMenuYamlClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            List<string> formates = new List<string>
+            {
+                "yaml"
+            };
+            openFileDialog.Filters.Add(new FileDialogFilter { Extensions = formates, Name = "Yaml files" });
+            openFileDialog.AllowMultiple = false;
+            string[]? result = await openFileDialog.ShowAsync(this.GetLogicalParent() as MainWindow);
+            if (DataContext is MainUserControlViewModel dataContext)
+            {
+                if (result != null)
+                {
+                    dataContext.Index = 0;
+                    dataContext.ChangeElements = true;
+                    dataContext.Project = Serializer.Load(result[0]);
+                    dataContext.ChangeElements = false;
+
+                }
+            }
+
+        }
+        private async void SaveFileDialogMenuYamlClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            List<string> formates = new List<string>
+            {
+                "yaml"
+            };
+            saveFileDialog.Filters.Add(new FileDialogFilter { Extensions = formates, Name = "Yaml files" });
+            string? result = await saveFileDialog.ShowAsync(this.GetLogicalParent() as MainWindow);
+            if (DataContext is MainUserControlViewModel dataContext)
+            {
+                if (result != null)
+                {
+                    dataContext.Project.Schemes[dataContext.Index].Elements = dataContext.Elements;
+                    Serializer.Save(result, dataContext.Project);
+                    if (this.GetLogicalParent() is MainWindow mw)
+                    {
+                        if (mw.DataContext is MainWindowViewModel mainWindow)
+                        {
+                            mainWindow.AddNewProjectPath(dataContext.Project.Name, result);
+                        }
+                    }
+                }
+            }
+        }
+
         private void PointerPressedOnMainCanvas(object sender, PointerPressedEventArgs pointerPressedEventArgs)
         {
             if (pointerPressedEventArgs.Source is Avalonia.Controls.Control control)

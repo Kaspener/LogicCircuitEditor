@@ -25,8 +25,8 @@
 				<Menu Grid.Column="0" Grid.Row="0">
 					<MenuItem Name="Menu" Header="Меню">
 						<MenuItem Header="Создать" Command="{Binding CreateProject}"/>
-						<MenuItem Header="Открыть"/>
-						<MenuItem Header="Сохранить"/>
+						<MenuItem Header="Открыть" Click="OpenFileDialogMenuYamlClick"/>
+						<MenuItem Header="Сохранить" Click="SaveFileDialogMenuYamlClick"/>
 						<MenuItem Header="Выйти" Click="CloseWindowButtonClick"/>
 					</MenuItem>
 					<MenuItem Name="Elements" Header="Элементы">

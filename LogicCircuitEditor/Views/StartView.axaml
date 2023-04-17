@@ -22,8 +22,8 @@
 
 	<Grid ColumnDefinitions="*, *">
 		<Grid Grid.Column="0" RowDefinitions="*, *, *" Focusable="True">
-			<Button Grid.Row="0" Content="Создать новый проект"/>
-			<Button Grid.Row="1" Content="Открыть проект"/>
+			<Button Grid.Row="0" Content="Создать новый проект" Click="CreateProjectButtonClick"/>
+			<Button Grid.Row="1" Content="Открыть проект" Click="OpenProjectButtonClick"/>
 			<Button Grid.Row="2" Content="Выход" Click="CloseWindowButtonClick"/>
 		</Grid>
 		<ListBox Grid.Column="1" Items="{Binding Projects}" SelectedIndex="{Binding Index}">

@@ -26,7 +26,7 @@ namespace LogicCircuitEditor.Views
             {
                 if (this.GetLogicalParent() is MainWindow mw)
                 {
-                    if (mw.DataContext is MainWindowViewModel mainWindow) mainWindow.OpenProject(start.Projects[start.Index].Path);
+                    if (start.Index > -1) if (mw.DataContext is MainWindowViewModel mainWindow) mainWindow.OpenProject(start.Projects[start.Index].Path);
                 }
             }
         }
